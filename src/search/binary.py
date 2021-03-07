@@ -1,18 +1,15 @@
-
-
-def search(array, item): 
-  startIndex = 0
-  length = len(array)
+def search(sorted_array, item): 
+  start_index = 0
+  end_index = len(sorted_array)
    
-  while length > 0:
-    index = startIndex + int(length/2)
-    if item == array[index]:
+  while start_index < end_index:
+    index = int((start_index + end_index)/2)
+    if item == sorted_array[index]:
       return index
 
-    if item < array[index]:
-      length = index - startIndex
+    if item < sorted_array[index]:
+      end_index = index
     else:
-      startIndex = index+1
-      length = length - startIndex
-
+      start_index = index+1
+      
   return -1
