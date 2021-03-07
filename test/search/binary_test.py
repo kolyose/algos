@@ -1,3 +1,5 @@
+"""Tests the Binary Search algorithm implementation."""
+
 from src.search.binary import search
 from test.util import create_test_runner
 
