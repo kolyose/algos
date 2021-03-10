@@ -18,6 +18,8 @@ def create_test_runner(fn):
 
   def test(cases):
     counter = 1;
+    actual = None
+    
     for args, expected in cases:
       try:
         actual = fn(*args)

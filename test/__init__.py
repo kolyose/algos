@@ -4,5 +4,7 @@ Re-export individual test sub-packages in order to allow importing them as the w
 
 Exported sub-packages:
   - search
+  - sort
 """
 import test.search
+import test.sort

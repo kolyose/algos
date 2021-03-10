@@ -4,5 +4,7 @@ Re-export individual test sub-packages in order to allow running them all at onc
 
 Exported sub-packages:
   - search
+  - sort
 """
 import test.search
+import test.sort
