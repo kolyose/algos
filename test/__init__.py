@@ -6,5 +6,5 @@ Exported sub-packages:
   - search
   - sort
 """
-import test.search
+#import test.search
 import test.sort
