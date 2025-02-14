@@ -1,5 +1,5 @@
 """Search algorhithm implementations.
 
-  - binary - Binary Search
-  - TBD
+- binary - Binary Search
+- TBD
 """

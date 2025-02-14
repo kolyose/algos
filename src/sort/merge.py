@@ -1,49 +1,44 @@
+def merge_sorted(arr_i, arr_j):
+    result = []
+    i = 0
+    j = 0
 
-def merge(arr_i, arr_j):
-  result = []
-  i=0
-  j=0
-  len_i = len(arr_i)
-  len_j = len(arr_j)
+    while i < len(arr_i) and j < len(arr_j):
+        if arr_i[i] > arr_j[j]:
+            result.append(arr_j[j])
+            j += 1
+        else:
+            result.append(arr_i[i])
+            i += 1
 
-  while True:
-    if i == len_i:
-      result.extend(arr_j[j:])
-      return result
-    
-    if j == len_j:
-      result.extend(arr_i[i:])
-      return result
+    rest = [*arr_i[i:], *arr_j[j:]]
+    result.extend(rest)
 
-    if arr_i[i] > arr_j[j]:
-      result.append(arr_j[j])
-      j+=1
-    else:
-      result.append(arr_i[i])
-      i+=1
+    return result
 
 
 from math import floor
 
+
 def sort(array):
-  """Implement Merge sort algorithm.
-  
-  Complexity:
-    O(n * log(n))
+    """Implement Merge sort algorithm.
 
-  Arguments:
-    - array - a list to sort
+    Complexity:
+      O(n * log(n))
 
-  Returns:
-    The sorted list.
-  """
-  length = len(array)
-  if (length < 2): 
-    return array
+    Arguments:
+      - array - a list to sort
 
-  middle_index = floor(length/2)
-  
-  left = sort(array[0:middle_index])
-  right = sort(array[middle_index:])
-  
-  return merge(left, right)
+    Returns:
+      The sorted list.
+    """
+    length = len(array)
+    if length < 2:
+        return array
+
+    middle_index = floor(length / 2)
+
+    left = sort(array[0:middle_index])
+    right = sort(array[middle_index:])
+
+    return merge_sorted(left, right)
