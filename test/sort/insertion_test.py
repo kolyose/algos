@@ -1,7 +1,8 @@
 """Tests the Insertion Sort algorithm implementation."""
 
-from src.sort import insertion
-from test.util import create_test_runner
+import pytest
+
+from src.sort.insertion import sort
 
 cases = [
     (([],), []),
@@ -12,5 +13,7 @@ cases = [
     (([0, -5, 4, 9, 11, 0],), [-5, 0, 0, 4, 9, 11]),
 ]
 
-test = create_test_runner(insertion.sort)
-test(cases)
+
+@pytest.mark.parametrize("input,expected", cases)
+def test_sort(input, expected):
+    assert sort(*input) == expected

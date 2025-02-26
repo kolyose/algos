@@ -1,7 +1,7 @@
 """Tests the Merge Sort algorithm implementation."""
 
-from src.sort import radix
-from test.util import create_test_runner
+import pytest
+from src.sort.radix import sort
 
 cases = [
     (([],), []),
@@ -16,5 +16,7 @@ cases = [
     ),
 ]
 
-test = create_test_runner(radix.sort)
-test(cases)
+
+@pytest.mark.parametrize("input,expected", cases)
+def test_sort(input, expected):
+    assert sort(*input) == expected
